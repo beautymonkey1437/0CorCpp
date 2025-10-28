@@ -8,19 +8,19 @@ int main()
     int LengthText;
     // printf("输入半径：");
     // scanf("%lf", &radius);
-    radius = 15;
+    radius = 12;
     LengthText = (int)(radius * 2) + 1; // 圆的大小
     for (y = 0; y < LengthText; y++)
     {
-        for (x = 0; x < LengthText; x++)
+        for (x = 0; x < 2.4 * LengthText; x++)
         {
-            if (fabs(sqrt((x - radius) * (x - radius) + (y - radius) * (y - radius)) - radius) < 0.47)
+            if (fabs(sqrt(((double)x / 2.4 - radius) * ((double)x / 2.4 - radius) + (y - radius) * (y - radius)) - radius) < 0.39)
             {
-                printf("* ");
+                printf("*");
             }
             else
             {
-                printf("  ");
+                printf(" ");
             }
         }
         printf("\n");

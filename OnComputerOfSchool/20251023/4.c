@@ -24,7 +24,7 @@ int main()
     case 3:
         iy = ix * ix * ix + ix * ix + 1;
     }
-    printf("x=%d时, y=%d\n", ix, iy);
+    printf("x=%d, y=%d\n", ix, iy);
     printf("输入一个实数:");
     scanf("%f", &fx);
     if (fx < 0 || fx >= 30)
@@ -44,6 +44,6 @@ int main()
     {
         fy = fx * fx * fx + fx * fx + 1;
     }
-    printf("x=%f时, y=%f\n", fx, fy);
+    printf("x=%f, y=%f\n", fx, fy);
     return 0;
 }

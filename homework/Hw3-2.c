@@ -1,5 +1,5 @@
-// T22
-// 宏, a>3x4,b>4x2
+// P92 T22
+//  宏, a>3x4,b>4x2
 #include <stdio.h>
 #define arow 3
 #define acol 4

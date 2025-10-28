@@ -1,5 +1,5 @@
-// T18
-//  XX*XXX=XXXX
+// P92 T18
+//   XX*XXX=XXXX
 #include <stdio.h>
 int main()
 {

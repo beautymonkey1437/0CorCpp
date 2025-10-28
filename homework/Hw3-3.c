@@ -1,38 +1,49 @@
-// P92 T23
-// 改成键盘输入所有坐标，先判断断点的关系（是否重合、X轴坐标是否相等）再计算斜率
-// 3.5-1求两点所在直线的斜率的程序
+// 实验指导书P76 T20 找零问题
+
 #include <stdio.h>
 #include <math.h>
+
+typedef struct
+{
+    int count;
+    double left;
+} CountAndLeft;
+
+CountAndLeft find(CountAndLeft cal, double x) // cal结构体, x纸币面额, count找钱张数, left找余
+{
+    cal.count = 0;
+    while (cal.left > x)
+    {
+        cal.count += 1;
+        cal.left -= x;
+    }
+    return cal;
+}
+
 int main()
 {
-    struct point
+    double paid = 100.0;
+    double price;
+    double paper[8] = {100.0, 50.0, 20.0, 10.0, 5.0, 1.0, 0.5, 0.1}; // 纸币面额
+    CountAndLeft cal;
+    printf("请输入花费(单位:元):");
+    scanf("%lf", &price);
+    cal.left = paid - price;
+    printf("找零%.1f元,方案:", cal.left);
+    if (fmod(cal.left, 0.1) >= 0.05)
     {
-        float x, y;
-    };
-    struct point p1, p2;
-    printf("输入点p1的x坐标：");
-    scanf("%f", &p1.x);
-    printf("输入点p1的y坐标：");
-    scanf("%f", &p1.y);
-    printf("输入点p2的x坐标：");
-    scanf("%f", &p2.x);
-    printf("输入点p2的y坐标：");
-    scanf("%f", &p2.y);
-    if ((p2.x == p1.x) && (p2.y == p1.y)) // 都是从输入获取的值，==不会误差吧?
-    {
-        printf("两点重合, 无法计算斜率");
-        return 0;
+        cal.left += 0.1;
     }
-    else
+    // int count[8] = {0};
+    int i;
+    for (i = 0; i < 8; i++)
     {
-        if (p2.x == p1.x) // 都是从输入获取的值，==不会误差吧?
+        cal = find(cal, paper[i]);
+        // count[i] = cal.count;
+        //  printf("%.1f %d;", paper[i], count[i]); // debug
+        if (cal.count)
         {
-            printf("两点X坐标相等, 无法计算斜率");
-            return 0;
-        }
-        else
-        {
-            printf("p1-p2直线的斜率是%f\n", (p2.y - p1.y) / (p2.x - p1.x));
+            printf("%.1f元%d张 ", paper[i], cal.count);
         }
     }
     return 0;
