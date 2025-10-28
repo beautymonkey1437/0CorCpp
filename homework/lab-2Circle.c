@@ -9,7 +9,7 @@ int main()
     // printf("输入半径：");
     // scanf("%lf", &radius);
     radius = 12;
-    LengthText = (int)(radius * 2) + 1; // 圆的大小
+    LengthText = (int)(radius * 2) + 1; //   圆的大小
     for (y = 0; y < LengthText; y++)
     {
         for (x = 0; x < 2.4 * LengthText; x++)
