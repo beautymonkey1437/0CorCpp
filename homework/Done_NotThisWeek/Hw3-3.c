@@ -24,10 +24,15 @@ int main()
 {
     double paid = 100.0;
     double price;
-    double paper[8] = {100.0, 50.0, 20.0, 10.0, 5.0, 1.0, 0.5, 0.1}; // 纸币面额
+    double cash[8] = {100.0, 50.0, 20.0, 10.0, 5.0, 1.0, 0.5, 0.1}; // 纸币面额
     CountAndLeft cal;
     printf("请输入花费(单位:元):");
     scanf("%lf", &price);
+    if (price > 100 || price <= 0)
+    {
+        printf("不对吧。");
+        return 0;
+    }
     cal.left = paid - price;
     printf("找零%.1f元,方案:", cal.left);
     if (fmod(cal.left, 0.1) >= 0.05)
@@ -38,12 +43,12 @@ int main()
     int i;
     for (i = 0; i < 8; i++)
     {
-        cal = find(cal, paper[i]);
+        cal = find(cal, cash[i]);
         // count[i] = cal.count;
-        //  printf("%.1f %d;", paper[i], count[i]); // debug
+        //  printf("%.1f %d;", cash[i], count[i]); // debug
         if (cal.count)
         {
-            printf("%.1f元%d张 ", paper[i], cal.count);
+            printf("%.1f元%d张 ", cash[i], cal.count);
         }
     }
     return 0;
