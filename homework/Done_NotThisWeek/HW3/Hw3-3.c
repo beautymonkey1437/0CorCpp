@@ -35,10 +35,11 @@ int main()
     }
     cal.left = paid - price;
     printf("找零%.1f元,方案:", cal.left);
-    if (fmod(cal.left, 0.1) >= 0.05)
+    round(cal.left * 10) / 10.0;
+    /*if (fmod(cal.left, 0.1) >= 0.05)
     {
         cal.left += 0.1;
-    }
+    }*/
     // int count[8] = {0};
     int i;
     for (i = 0; i < 8; i++)

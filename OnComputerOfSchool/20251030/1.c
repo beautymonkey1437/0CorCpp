@@ -14,7 +14,7 @@ int main()
         scanf("%d", &numlist[i]);
         numcount[numlist[i]] += 1;
     }
-    for (i = 0; i < numbers; i++)
+    for (i = 0; i < 1000; i++)
     {
         if (numcount[i])
         {

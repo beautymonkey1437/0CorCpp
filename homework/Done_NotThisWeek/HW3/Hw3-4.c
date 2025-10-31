@@ -18,14 +18,14 @@ int main()
     scanf("%f", &p2.x);
     printf("输入点p2的y坐标:");
     scanf("%f", &p2.y);
-    if ((p2.x == p1.x) && (p2.y == p1.y)) // 都是从输入获取的值，==不会误差吧?
+    if ((p2.x - p1.x < 1e-6) && (p2.y - p1.y < 1e-6))
     {
         printf("两点重合, 无法计算斜率");
         return 0;
     }
     else
     {
-        if (p2.x == p1.x) // 都是从输入获取的值，==不会误差吧?
+        if (p2.x - p1.x < 1e-6)
         {
             printf("两点X坐标相等, 无法计算斜率");
             return 0;
