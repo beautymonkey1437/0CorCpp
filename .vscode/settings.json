@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "string.h": "c"
     },
     "editor.tabSize": 4,
     "editor.defaultFormatter": "ms-vscode.cpptools",
@@ -14,6 +15,10 @@
     "prettier.useTabs": true,
     "cSpell.words": [
         "wechat"
-    ]
+    ],
+    "editor.stickyScroll.defaultModel": "foldingProviderModel",
+    "workbench.tree.enableStickyScroll": true,
+    "notebook.stickyScroll.enabled": true,
+    "notebook.stickyScroll.mode": "indented"
 }
 

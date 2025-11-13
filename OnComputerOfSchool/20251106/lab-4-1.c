@@ -37,7 +37,7 @@ void add(struct person p) // add(person1);
     }
 }
 // 姓名
-void search_name(char name) // search("张三");
+void search_name(char name[]) // search("张三");
 {
     FILE *fp = fopen("address_book.txt", "r");
     struct person p;
@@ -65,7 +65,7 @@ void search_name(char name) // search("张三");
     }
 }
 // 手机号
-void search_phone(char phone) // search("19900001111");
+void search_phone(char phone[]) // search("19900001111");
 {
     FILE *fp = fopen("address_book.txt", "r");
     struct person p;
@@ -94,7 +94,7 @@ void search_phone(char phone) // search("19900001111");
     }
 }
 // 微信
-void search_wechat(char wechat) // search("qwerty");
+void search_wechat(char wechat[]) // search("qwerty");
 {
     FILE *fp = fopen("address_book.txt", "r");
     struct person p;
@@ -122,7 +122,7 @@ void search_wechat(char wechat) // search("qwerty");
     }
 }
 // QQ
-void search_qq(char qq) // search("3000010000");
+void search_qq(char qq[]) // search("3000010000");
 {
     FILE *fp = fopen("address_book.txt", "r");
     struct person p;
@@ -156,6 +156,7 @@ void display_all()
     struct person p;
     if (fp != NULL)
     {
+        printf("通讯录所有人：\n");
         while (fscanf(fp, "%s %s %s %s", p.name, p.phone, p.wechat, p.qq) != EOF)
         {
             display(p);
@@ -173,6 +174,7 @@ int main()
     struct person temp;
     int opcode;
     int search_code;
+    char key[20];
     while (1)
     {
         printf("1.添加联系人 2.查找联系人 3.显示所有通讯录 4.退出\n"); // 1添加联系人包括输入、存入文件
@@ -185,11 +187,9 @@ int main()
             add(temp);
             break;
         case 2:
-
-            char key[20];
-            printf("按1.姓名 2.手机号 3.微信号 4.QQ号查找联系人：");
+            printf("查找方式 1.姓名 2.手机 3.微信 4.QQ：");
             scanf("%d", &search_code);
-            printf("请输入关键字：");
+            printf("请输入查找内容：");
             scanf("%s", key);
             switch (search_code)
             {
